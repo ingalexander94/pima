@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  maridb_mapi:
+    image: mariadb:11.2.2
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: FPprtKGmzZASVwVKeoRW
+    ports:
+      - 3309:3306
+    command: --init-file /docker-entrypoint-initdb.d/init.sql --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mariadb/data:/var/lib/mysql/data/

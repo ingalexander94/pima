@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+*.iml
+.git
+.DS_Store
+src/.env
+src/.env.development
+src/node_modules
+dist
