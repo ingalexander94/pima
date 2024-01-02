@@ -1,8 +1,8 @@
 const { response, request } = require("express");
 const CustomError = require("../config/errors");
-const UserModel = require("../database/models/user.model");
 const Encrypter = require("../config/encryptor");
 const JWT = require("../config/jwt");
+const UserModel = require("../database/models/user.model");
 const UserRoleModel = require("../database/models/user-role.model");
 const { sendRecoveryCode } = require("../email/emails");
 

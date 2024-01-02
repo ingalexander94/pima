@@ -1,7 +1,7 @@
-const { request, response } = require("express");
 const psl = require("psl");
-const { getConnectionBySubdomain } = require("../database/manager");
+const { request, response } = require("express");
 const { createNamespace } = require("continuation-local-storage");
+const { getConnectionBySubdomain } = require("../database/manager");
 const { parseDomain } = require("../helpers/formatter");
 
 const nameSpace = createNamespace("unique context");

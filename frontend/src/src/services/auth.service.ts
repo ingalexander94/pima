@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CustomStorage } from "src/lib";
-import AuthEndpoints from "src/models/auth.endpoints.model";
 import { loadAbort } from "src/utilities";
+import AuthEndpoints from "src/models/auth.endpoints.model";
 
 export default class AuthService {
   private static API_URL = `${import.meta.env.VITE_API_URL}/auth`;

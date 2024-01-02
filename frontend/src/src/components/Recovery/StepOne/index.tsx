@@ -1,15 +1,15 @@
 import { FormEvent, useContext, useEffect, useRef, useState } from "react";
-import { SettingsContext } from "src/context/settings";
+import { debounce } from "lodash";
 import { Link } from "react-router-dom";
 import { publicRoutes } from "src/models";
 import { MapiResponse, ValidateInput } from "src/interfaces";
-import { debounce } from "lodash";
-import { RecoveryValidator } from "src/validators";
-import TextInfo from "src/components/UI/TextInfo";
-import { UIContext } from "src/context/ui";
-import styles from "../steps.module.css";
 import { useFetch } from "src/hooks";
+import { RecoveryValidator } from "src/validators";
+import { SettingsContext } from "src/context/settings";
+import { UIContext } from "src/context/ui";
 import AuthService from "src/services/auth.service";
+import TextInfo from "src/components/UI/TextInfo";
+import styles from "../steps.module.css";
 
 const StepOne = () => {
   const settingsContext = useContext(SettingsContext);

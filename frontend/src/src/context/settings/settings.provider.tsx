@@ -2,9 +2,9 @@ import { useReducer } from "react";
 import { SettingsState } from "src/interfaces";
 import { settingsReducer } from "./settings.reducer";
 import { SettingsContext } from "./settings.context";
+import { CustomStorage } from "src/lib/Storage";
 import * as tranlations_en from "src/data/lang/en.json";
 import * as tranlations_es from "src/data/lang/es.json";
-import { CustomStorage } from "src/lib/Storage";
 
 const INITIAL_STATE: SettingsState = {
   translated_text:

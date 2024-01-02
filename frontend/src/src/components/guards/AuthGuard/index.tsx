@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { AuthContext } from "src/context/auth";
 import { privateRoutes, publicRoutes } from "src/models";
+import { AuthContext } from "src/context/auth";
 
 interface Props {
   privateValidation: boolean;

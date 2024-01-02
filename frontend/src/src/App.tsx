@@ -1,10 +1,10 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route } from "react-router-dom";
-import ScreenLoader from "./components/ScreenLoader";
+import { privateRoutes, publicRoutes } from "./models";
 import { AuthProvider } from "./context/auth";
 import { UIProvider } from "./context/ui";
-import { privateRoutes, publicRoutes } from "./models";
 import { SettingsProvider } from "./context/settings/settings.provider";
+import ScreenLoader from "./components/ScreenLoader";
 import Loading from "./components/UI/Loading";
 import RoutesWithNotFound from "./components/RoutesWithNotFound";
 import AuthGuard from "./components/guards/AuthGuard";

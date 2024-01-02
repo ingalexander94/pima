@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AuthContext } from "src/context/auth";
 import { useFetch } from "src/hooks";
-import { LoginResponse } from "src/interfaces";
 import { CustomStorage } from "src/lib";
+import { LoginResponse } from "src/interfaces";
+import { AuthContext } from "src/context/auth";
 import AuthService from "src/services/auth.service";
 import Loading from "../UI/Loading";
 

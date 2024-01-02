@@ -1,8 +1,8 @@
 const { request, response } = require("express");
 const CustomError = require("../config/errors");
+const JWT = require("../config/jwt");
 const UserModel = require("../database/models/user.model");
 const UserRoleModel = require("../database/models/user-role.model");
-const JWT = require("../config/jwt");
 
 class AuthMiddleware {
   static #handleError = (error, res = response) => {

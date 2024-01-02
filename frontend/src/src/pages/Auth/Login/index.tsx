@@ -1,20 +1,24 @@
 import { FormEvent, useContext, useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 import { Link, useNavigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "src/models";
+import { useFetch } from "src/hooks";
+import { CustomStorage } from "src/lib";
+import { LoginValidator } from "src/validators";
+import {
+  LoginResponse,
+  LoginUser,
+  MapiResponse,
+  ValidateInput,
+} from "src/interfaces";
+import { AuthContext } from "src/context/auth";
+import AuthService from "src/services/auth.service";
 import Slider from "src/components/UI/Slider";
+import TextInfo from "src/components/UI/TextInfo";
 import logo from "src/assets/logo.svg";
 import eye from "src/assets/icons/eye.svg";
 import noEye from "src/assets/icons/no-eye.svg";
-import { debounce } from "lodash";
-import { LoginValidator } from "src/validators";
-import { LoginResponse, MapiResponse, ValidateInput } from "src/interfaces";
-import TextInfo from "src/components/UI/TextInfo";
 import styles from "../auth.module.css";
-import { useFetch } from "src/hooks";
-import AuthService from "src/services/auth.service";
-import { AuthContext } from "src/context/auth";
-import { LoginUser } from "../../../interfaces/auth.interface";
-import { CustomStorage } from "src/lib";
 
 const currentYear = new Date().getFullYear();
 

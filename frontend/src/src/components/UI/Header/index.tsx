@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
-import { AuthContext } from "src/context/auth";
+import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { CustomStorage } from "src/lib";
+import { getRouteTitle, publicRoutes } from "src/models";
+import { AuthContext } from "src/context/auth";
 import notificationsActiveIcon from "src/assets/icons/notification-active.svg";
 import styles from "./header.module.css";
-import { getRouteTitle, publicRoutes } from "src/models";
-import { CustomStorage } from "../../../lib/Storage";
 
 const Header = () => {
   const location = useLocation();

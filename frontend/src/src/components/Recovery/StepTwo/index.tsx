@@ -7,14 +7,14 @@ import {
   useRef,
   useState,
 } from "react";
-import { SettingsContext } from "src/context/settings";
-import { getTypedCharacter } from "src/utilities";
-import Timer from "../Timer";
-import { UIContext } from "src/context/ui";
-import styles from "../steps.module.css";
 import { useFetch } from "src/hooks";
 import { MapiResponse } from "src/interfaces";
+import { getTypedCharacter } from "src/utilities";
+import { UIContext } from "src/context/ui";
+import { SettingsContext } from "src/context/settings";
 import AuthService from "src/services/auth.service";
+import Timer from "../Timer";
+import styles from "../steps.module.css";
 
 const StepTwo = () => {
   const settingsContext = useContext(SettingsContext);

@@ -1,11 +1,11 @@
-import logo from "src/assets/logo.svg";
+import { useContext } from "react";
+import { UIContext } from "src/context/ui";
 import Slider from "src/components/UI/Slider";
-import styles from "../auth.module.css";
 import StepOne from "src/components/Recovery/StepOne";
 import StepTwo from "src/components/Recovery/StepTwo";
 import StepThree from "src/components/Recovery/StepThree";
-import { useContext } from "react";
-import { UIContext } from "src/context/ui";
+import logo from "src/assets/logo.svg";
+import styles from "../auth.module.css";
 
 const currentYear = new Date().getFullYear();
 

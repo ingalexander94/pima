@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
-import { SettingsContext } from "src/context/settings";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { useFetch } from "src/hooks";
+import { CustomStorage } from "src/lib";
+import { privateRoutes } from "src/models";
+import { LoginResponse } from "src/interfaces";
 import { ForgotValidatorForm } from "src/validators";
+import { SettingsContext } from "src/context/settings";
+import { UIContext } from "src/context/ui";
+import { AuthContext } from "src/context/auth";
+import AuthService from "src/services/auth.service";
+import TextInfo from "src/components/UI/TextInfo";
 import eye from "src/assets/icons/eye.svg";
 import noEye from "src/assets/icons/no-eye.svg";
 import styles from "../steps.module.css";
-import TextInfo from "src/components/UI/TextInfo";
-import { UIContext } from "src/context/ui";
-import { useFetch } from "src/hooks";
-import { LoginResponse } from "src/interfaces";
-import AuthService from "src/services/auth.service";
-import { CustomStorage } from "src/lib";
-import { privateRoutes } from "src/models";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "src/context/auth";
 
 const StepThree = () => {
   const settingsContext = useContext(SettingsContext);

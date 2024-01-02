@@ -1,11 +1,11 @@
-import circleError from "src/assets/icons/circle-error.svg";
-import circleSuccess from "src/assets/icons/circle-success.svg";
 import { useContext, useEffect, useState } from "react";
-import styles from "../steps.module.css";
-import { UIContext } from "src/context/ui";
 import { useFetch } from "src/hooks";
 import { MapiResponse } from "src/interfaces";
+import { UIContext } from "src/context/ui";
 import AuthService from "src/services/auth.service";
+import circleError from "src/assets/icons/circle-error.svg";
+import circleSuccess from "src/assets/icons/circle-success.svg";
+import styles from "../steps.module.css";
 
 type Props = {
   isValidCode: boolean | undefined;

@@ -1,6 +1,6 @@
 const knex = require("knex");
-const { getNamespace } = require("continuation-local-storage");
 const cache = require("memory-cache");
+const { getNamespace } = require("continuation-local-storage");
 const { connectCommonDB } = require("./common");
 
 async function getConstants() {

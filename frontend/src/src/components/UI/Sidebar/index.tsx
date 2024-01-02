@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { modulesGlobalRoutes, privateRoutes } from "src/models";
 import logo from "src/assets/logo.svg";
-import styles from "./sidebar.module.css";
 import chartIcon from "src/assets/icons/chart.svg";
 import settingsIcon from "src/assets/icons/settings.svg";
-import { modulesGlobalRoutes, privateRoutes } from "src/models";
+import styles from "./sidebar.module.css";
 
 const Sidebar = () => {
   return (
