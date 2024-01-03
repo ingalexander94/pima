@@ -13,6 +13,7 @@ export interface AuthState {
 export type ValidateInput = {
   value: string;
   error: string;
+  success: string;
   loading: boolean;
 };
 

@@ -3,10 +3,17 @@ span.text_info {
   width: 100%;
   margin-top: -4px;
   font-size: 12px;
-  color: var(--primary-color);
   display: flex;
   column-gap: 5px;
   align-items: center;
+}
+
+span.text_error {
+  color: var(--primary-color);
+}
+
+span.text_success {
+  color: var(--success-color);
 }
 
 span.text_info span {

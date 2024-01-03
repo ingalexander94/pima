@@ -25,6 +25,7 @@ const currentYear = new Date().getFullYear();
 const INITIAL_VALIDATION_STATE = {
   value: "",
   error: "",
+  success: "",
   loading: false,
 };
 
@@ -46,20 +47,25 @@ const Login = () => {
 
   const debouncedValidateEmail = useRef(
     debounce(async (emailValue: string) => {
-      setEmail((current) => ({ ...current, value: emailValue, loading: true }));
+      setEmail((current) => ({
+        ...current,
+        value: emailValue,
+        loading: true,
+      }));
       const validateEmail: MapiResponse = await callEndpoint(
         AuthService.validateEmail(emailValue)
       );
       const isValid = validateEmail.status;
       setIsEmailValid(isValid);
-      setTimeout(() => {
-        if (isValid) passwordRef.current?.focus();
-      }, 0);
       setEmail((current) => ({
         ...current,
         loading: false,
         error: !isValid ? "El correo no existe" : "",
+        success: isValid ? "Correo confirmado" : "",
       }));
+      setTimeout(() => {
+        if (isValid) passwordRef.current?.focus();
+      }, 0);
     }, 1000)
   );
 
@@ -80,6 +86,7 @@ const Login = () => {
         ...current,
         loading: false,
         error: !isValid ? "La contraseña es incorrecta" : "",
+        success: isValid ? "Contraseña correcta" : "",
       }));
     }, 1000)
   );
@@ -102,8 +109,18 @@ const Login = () => {
       ? "No es un correo válido"
       : "";
     setLoginUser(null);
-    setEmail((current) => ({ ...current, value: newEmail, error }));
-    setPassword((current) => ({ ...current, value: "", error: "" }));
+    setEmail((current) => ({
+      ...current,
+      value: newEmail,
+      error,
+      success: "",
+    }));
+    setPassword((current) => ({
+      ...current,
+      value: "",
+      error: "",
+      success: "",
+    }));
     setIsEmailValid(false);
     setIsPasswordValid(false);
     if (isValidFormat) debouncedValidateEmail.current(newEmail);
@@ -119,7 +136,12 @@ const Login = () => {
       : "";
     setLoginUser(null);
     setIsPasswordValid(false);
-    setPassword((current) => ({ ...current, value: newPassword, error }));
+    setPassword((current) => ({
+      ...current,
+      value: newPassword,
+      error,
+      success: "",
+    }));
     if (isValidFormat)
       debouncedValidatePassword.current(email.value, newPassword);
   };
@@ -157,7 +179,11 @@ const Login = () => {
               onChange={handleEmailChange}
               disabled={email.loading || password.loading}
             />
-            <TextInfo loading={email.loading} error={email.error} />
+            <TextInfo
+              loading={email.loading}
+              error={email.error}
+              success={email.success}
+            />
           </div>
           <div className={styles.authentication__input}>
             <label htmlFor="user_password">Contraseña</label>
@@ -178,7 +204,11 @@ const Login = () => {
             ) : (
               <img onClick={handleShow} src={noEye} alt="eye icon" />
             )}
-            <TextInfo loading={password.loading} error={password.error} />
+            <TextInfo
+              loading={password.loading}
+              error={password.error}
+              success={password.success}
+            />
           </div>
           <label htmlFor={styles.remember}>
             <input type="checkbox" name="remember" id={styles.remember} />

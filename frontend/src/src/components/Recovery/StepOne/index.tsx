@@ -27,6 +27,7 @@ const StepOne = () => {
   const [email, setEmail] = useState<ValidateInput>({
     value: "",
     error: "",
+    success: "",
     loading: false,
   });
 
@@ -42,6 +43,7 @@ const StepOne = () => {
         ...current,
         loading: false,
         error: !isValid ? "El correo no existe" : "",
+        success: isValid ? "Correo confirmado" : "",
       }));
     }, 1000)
   );
@@ -61,7 +63,12 @@ const StepOne = () => {
       ? "No es un correo válido"
       : "";
     setIsEmailValid(false);
-    setEmail((current) => ({ ...current, value: newEmail, error }));
+    setEmail((current) => ({
+      ...current,
+      value: newEmail,
+      error,
+      success: "",
+    }));
     if (isValidFormat) debouncedValidateEmail.current(newEmail);
   };
 
@@ -100,7 +107,11 @@ const StepOne = () => {
           onChange={handleEmailChange}
           disabled={email.loading}
         />
-        <TextInfo loading={email.loading} error={email.error} />
+        <TextInfo
+          loading={email.loading}
+          error={email.error}
+          success={email.success}
+        />
       </div>
       <button
         className={loading ? "loading" : ""}
