@@ -10,6 +10,7 @@ nav.navbar {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #c8cbd9;
+  z-index: 10;
 }
 
 nav.navbar h4 {

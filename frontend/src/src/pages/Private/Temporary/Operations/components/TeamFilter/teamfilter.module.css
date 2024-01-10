@@ -1,0 +1,52 @@
+section.team_filter {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 20px;
+  align-items: center;
+}
+
+section.team_filter > p {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+section.team_filter > ul {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 10px;
+  max-width: 100%;
+  overflow-x: scroll;
+  background: var(--background-color);
+  border-radius: 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+section.team_filter > ul::-webkit-scrollbar {
+  display: none;
+}
+
+section.team_filter > ul li {
+  padding: 5px 10px;
+  font-size: 14px;
+  text-wrap: nowrap;
+  font-weight: 400;
+  border-radius: 4px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+section.team_filter > ul li.active {
+  font-weight: 700;
+  background: var(--white-color);
+  box-shadow: 0px 0px 20px 0px rgba(137, 147, 158, 0.2);
+}
+
+section.team_filter > button {
+  justify-self: flex-end;
+  width: 168px;
+  padding: 0 20px;
+  height: 40px;
+}
